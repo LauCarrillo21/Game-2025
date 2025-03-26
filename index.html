@@ -18,16 +18,16 @@
         <label for="jaguar">Jaguar</label>
         <input type="radio" id="jaguar"name="pet"/>
         
-        <button>Select</button>
+        <button id="button-pet">Select</button>
     </section>
     <section id="select-attack">
         <h2>Select your attack</h2>
-        <p> Your pet has <span>3</span> lifes</p>
-        <p> Enemy's pet has <span>3</span> lifes</p>
+        <p> Your pet <span id="player-pet"></span> has <span>3</span> lifes</p>
+        <p> Enemy's pet <span></span> has <span>3</span> lifes</p>
         <p>
-            <button>💧</button>
-            <button>🔥</button>
-            <button>🌱</button>
+            <button id="button-water">💧</button>
+            <button id="button-fire">🔥</button>
+            <button id="button-earth">🌱</button>
         </p>
     </section>
 
@@ -38,6 +38,8 @@
     <section id="restart">
         <button id="restart"></button>
     </section>
+
     
+    <script src ="./index.js"></script>
 </body>
 </html>
