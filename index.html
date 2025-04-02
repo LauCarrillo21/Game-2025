@@ -4,42 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game 🕹️</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Game🕹️</h1>
+    
     <section id="select-pet">
-        <h2>Select your pet</h2>
-        <label for="axolotl">Axolotl</label>
-        <input type="radio" id="axolotl"name="pet"/>
+        <h1 class="title">🐾Pets Game🕹️</h1>
+        <h2 class="subtitle">Select your pet</h2>
 
-        <label for="eagle">Eagle</label>
-        <input type="radio" id="eagle"name="pet"/>
+        <div class="cards">
+            <input type="radio" id="axolotl"name="pet"/>
+            <label class="pet-card" for="axolotl">
+                <p>Axolotl</p>
+                <img src="/assets/Axolotl.png" 
+                alt="axolotl" width="100" />
+            </label>
 
-        <label for="jaguar">Jaguar</label>
-        <input type="radio" id="jaguar"name="pet"/>
-        
+            <input type="radio" id="eagle"name="pet"/>
+            <label class="pet-card" for="eagle">
+                <p>Eagle</p>
+                <img src="/assets/Eagle.png" 
+                alt="eagle" width="100" />
+            </label>
+            
+            <input type="radio" id="jaguar"name="pet"/>
+            <label class="pet-card" for="jaguar">
+                <p>Jaguar</p>
+                <img src="/assets/Jaguar.png" 
+                alt="jaguar" width="100" />
+            </label>            
+        </div>
+
         <button id="button-pet">Select</button>
     </section>
+
     <section id="select-attack">
-        <h2>Select your attack</h2>
-        <p> Your pet <span id="player-pet"></span> has <span id="player-lives">3</span> lifes</p>
-        <p> Enemy's pet <span id="enemy-pet"></span> has <span id="enemy-lives">3</span> lifes</p>
-        <p>
+        <h1 class="title">🐾Pets Game🕹️</h1>
+        <h2 class="subtitle">Select your attack</h2>
+
+        <div class="attack-cards">
             <button id="button-water">💧</button>
             <button id="button-fire">🔥</button>
             <button id="button-earth">🌱</button>
-        </p>
+        </div>
+
+        <div id="messages">
+            <p id="result">Good Luck!</p>
+            <section id="restart">
+                <button id="restart-button">Restart</button>
+            </section>
+        </div>
+
+        <div class="attacks">
+            <div class="player-attacks">
+                <p id="player-lives">3</p>
+                <p id="player-pet"></p>
+                <div id="player-attacks"></div>
+            </div>
+
+            <div class="enemy-attacks">
+                <p id="enemy-lives">3</p>
+                <p id="enemy-pet"></p>
+                <div id="enemy-attacks"></div>
+            </div>
+        </div>
     </section>
 
-    <section id="messages">
-
-    </section>
-
-    <section id="restart">
-        <button id="restart">Restart</button>
-    </section>
-
-    
     <script src ="./index.js"></script>
 </body>
 </html>

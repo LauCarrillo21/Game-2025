@@ -16,14 +16,12 @@ function startGame(){
 
     let buttonWater = document.getElementById("button-water")
     buttonWater.addEventListener("click", attackWater)
-
     let buttonFire =  document.getElementById("button-fire")
     buttonFire.addEventListener("click", attackFire)
-
     let buttonEarth =  document.getElementById("button-earth")
     buttonEarth.addEventListener("click", attackEarth)
 
-    let buttonRestart=  document.getElementById("restart")
+    let buttonRestart=  document.getElementById("restart-button")
     buttonRestart.addEventListener("click", restartGame)
 }
 
@@ -33,7 +31,7 @@ function selectPlayerPet(){
 
 
     let sectionSelectAttack = document.getElementById("select-attack")
-    sectionSelectAttack.style.display = 'block'
+    sectionSelectAttack.style.display = 'flex'
 
     let inputAxolotl = document.getElementById("axolotl")
     let inputEagle = document.getElementById("eagle")
@@ -59,9 +57,9 @@ function selectEnemyPet(){
     if (randomPet == 1) {
         spanEnemyPet.innerHTML = 'Axolotl 🩷'
     } else if (randomPet == 2) {
-        spanEnemyPet.innerHTML = '🦅'
+        spanEnemyPet.innerHTML = 'Eagle 🦅'
     } else {
-        spanEnemyPet.innerHTML = '🐆'
+        spanEnemyPet.innerHTML = 'Jaguar 🐆'
     }
 }
 
@@ -98,7 +96,7 @@ function fight() {
         let spanEnemyLives = document.getElementById("enemy-lives")
         //Game Rules
         if (playerAttack == enemyAttack) {
-            createMessage("It'a tie");
+            createMessage("It's a tie");
         }else if (playerAttack == 'Fire' && enemyAttack== 'Earth') {
             createMessage("You win");
             enemyLives--
@@ -128,30 +126,42 @@ function checkLives(){
 }
 
 function createMessage (result) {
-    let messagesSection = document.getElementById("messages")
+    let messagesSection = document.getElementById("result")
+    let playerAttackContainer = document.getElementById("player-attacks")
+    let enemyAttackContainer = document.getElementById("enemy-attacks")
 
-    let paragraph = document.createElement('p')
-    paragraph.innerHTML = "Your pet attacked with " + playerAttack + " Your enemy's pet attacked with " + enemyAttack + " " + result
-    messagesSection.appendChild(paragraph)
+    let newPlayerAttack = document.createElement("p");
+    let newEnemyAttack = document.createElement("p");
+
+    // Use a separate variable for the attack name to avoid confusion
+    let playerAttackText = playerAttack;
+    let enemyAttackText = enemyAttack;
+
+    // Assign the correct values
+    newPlayerAttack.innerHTML = playerAttackText;
+    newEnemyAttack.innerHTML = enemyAttackText;
+
+    // Append to the containers
+    playerAttackContainer.appendChild(newPlayerAttack);
+    enemyAttackContainer.appendChild(newEnemyAttack);
+
+    messagesSection.innerHTML = result;
+
 }
 
 function createFinalMessage(finalResult) {
-    let messagesSection = document.getElementById("messages")
+    let messagesSection = document.getElementById("result")
 
-    let paragraph = document.createElement('p')
-    paragraph.innerHTML = finalResult
-    messagesSection.appendChild(paragraph)
+    messagesSection.innerHTML = finalResult
 
+    let buttonFire = document.getElementById("button-fire")
+    buttonFire.disabled = true
     let buttonWater = document.getElementById("button-water")
     buttonWater.disabled = true
-
-    let buttonFire =  document.getElementById("button-fire")
-    buttonFire.disabled = true
-
-    let buttonEarth =  document.getElementById("button-earth")
+    let buttonEarth = document.getElementById("button-earth")
     buttonEarth.disabled = true
 
-     let sectionRestart = document.getElementById("restart")
+    let sectionRestart = document.getElementById('restart')
     sectionRestart.style.display = 'block'
 }
 
