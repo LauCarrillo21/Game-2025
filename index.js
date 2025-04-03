@@ -26,6 +26,18 @@ let enemyAttack
 let playerLives = 3
 let enemyLives = 3
 
+class Pet {
+    constructor (name, image, life) {
+        this.name = name
+        this.image = image
+        this.life = life
+    }
+}
+
+let axolotl = new Pet ("Axolotl","/assets/Axolotl.png", 5)
+let eagle = new Pet ("Eagle","/assets/Eagle.png", 5)
+let jaguar = new Pet ("Jaguar","/assets/Jaguar.png", 5)
+
 function startGame(){
     sectionSelectAttack.style.display = 'none'
 
