@@ -1,42 +1,49 @@
+const sectionSelectAttack = document.getElementById("select-attack")
+const sectionRestart = document.getElementById("restart")
+const buttonPetPlayer = document.getElementById("button-pet")
+const buttonWater = document.getElementById("button-water")
+const buttonFire =  document.getElementById("button-fire")
+const buttonEarth =  document.getElementById("button-earth")
+const buttonRestart=  document.getElementById("restart-button")
+
+const sectionSelectPet = document.getElementById("select-pet")
+const inputAxolotl = document.getElementById("axolotl")
+const inputEagle = document.getElementById("eagle")
+const inputJaguar = document.getElementById("jaguar")
+const spanPlayerPet = document.getElementById("player-pet")
+
+const spanEnemyPet = document.getElementById("enemy-pet")
+
+const spanPlayerLives = document.getElementById("player-lives")
+const spanEnemyLives = document.getElementById("enemy-lives")
+
+const messagesSection = document.getElementById("result")
+const playerAttackContainer = document.getElementById("player-attacks")
+const enemyAttackContainer = document.getElementById("enemy-attacks")
+
 let playerAttack
 let enemyAttack
 let playerLives = 3
 let enemyLives = 3
 
 function startGame(){
-    let sectionSelectAttack = document.getElementById("select-attack")
     sectionSelectAttack.style.display = 'none'
 
-    let sectionRestart = document.getElementById("restart")
     sectionRestart.style.display = 'none'
-
-
-    let buttonPetPlayer = document.getElementById("button-pet")
+    
     buttonPetPlayer.addEventListener("click",selectPlayerPet)
 
-    let buttonWater = document.getElementById("button-water")
     buttonWater.addEventListener("click", attackWater)
-    let buttonFire =  document.getElementById("button-fire")
     buttonFire.addEventListener("click", attackFire)
-    let buttonEarth =  document.getElementById("button-earth")
     buttonEarth.addEventListener("click", attackEarth)
-
-    let buttonRestart=  document.getElementById("restart-button")
+   
     buttonRestart.addEventListener("click", restartGame)
 }
 
 function selectPlayerPet(){
-     let sectionSelectPet = document.getElementById("select-pet")
-     sectionSelectPet.style.display = 'none'
-
-
-    let sectionSelectAttack = document.getElementById("select-attack")
+    sectionSelectPet.style.display = 'none'
+    
     sectionSelectAttack.style.display = 'flex'
-
-    let inputAxolotl = document.getElementById("axolotl")
-    let inputEagle = document.getElementById("eagle")
-    let inputJaguar = document.getElementById("jaguar")
-    let spanPlayerPet = document.getElementById("player-pet")
 
     if (inputAxolotl.checked) {
         spanPlayerPet.innerHTML = 'Axolotl 🩷'
@@ -52,7 +59,6 @@ function selectPlayerPet(){
 
 function selectEnemyPet(){
     let randomPet = random(1,3)
-    let spanEnemyPet = document.getElementById("enemy-pet")
 
     if (randomPet == 1) {
         spanEnemyPet.innerHTML = 'Axolotl 🩷'
@@ -92,8 +98,6 @@ function enemyRandomAttack () {
 }
 
 function fight() {
-        let spanPlayerLives = document.getElementById("player-lives")
-        let spanEnemyLives = document.getElementById("enemy-lives")
         //Game Rules
         if (playerAttack == enemyAttack) {
             createMessage("It's a tie");
@@ -126,9 +130,6 @@ function checkLives(){
 }
 
 function createMessage (result) {
-    let messagesSection = document.getElementById("result")
-    let playerAttackContainer = document.getElementById("player-attacks")
-    let enemyAttackContainer = document.getElementById("enemy-attacks")
 
     let newPlayerAttack = document.createElement("p");
     let newEnemyAttack = document.createElement("p");
@@ -150,18 +151,12 @@ function createMessage (result) {
 }
 
 function createFinalMessage(finalResult) {
-    let messagesSection = document.getElementById("result")
-
     messagesSection.innerHTML = finalResult
 
-    let buttonFire = document.getElementById("button-fire")
     buttonFire.disabled = true
-    let buttonWater = document.getElementById("button-water")
     buttonWater.disabled = true
-    let buttonEarth = document.getElementById("button-earth")
     buttonEarth.disabled = true
 
-    let sectionRestart = document.getElementById('restart')
     sectionRestart.style.display = 'block'
 }
 
