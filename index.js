@@ -32,6 +32,7 @@ class Pet {
         this.name = name
         this.image = image
         this.life = life
+        this.attacks = []
     }
 }
 
@@ -39,8 +40,8 @@ let axolotl = new Pet ("Axolotl","/assets/Axolotl.png", 5)
 let eagle = new Pet ("Eagle","/assets/Eagle.png", 5)
 let jaguar = new Pet ("Jaguar","/assets/Jaguar.png", 5)
 
-pets.push(axolotl,eagle,jaguar)
-console.log(pets)
+
+
 
 function startGame(){
     sectionSelectAttack.style.display = 'none'
