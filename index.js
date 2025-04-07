@@ -7,9 +7,6 @@ const buttonEarth =  document.getElementById("button-earth")
 const buttonRestart=  document.getElementById("restart-button")
 
 const sectionSelectPet = document.getElementById("select-pet")
-const inputAxolotl = document.getElementById("axolotl")
-const inputEagle = document.getElementById("eagle")
-const inputJaguar = document.getElementById("jaguar")
 const spanPlayerPet = document.getElementById("player-pet")
 
 const spanEnemyPet = document.getElementById("enemy-pet")
@@ -20,10 +17,15 @@ const spanEnemyLives = document.getElementById("enemy-lives")
 const messagesSection = document.getElementById("result")
 const playerAttackContainer = document.getElementById("player-attacks")
 const enemyAttackContainer = document.getElementById("enemy-attacks")
+const cardsContainer = document.getElementById("cards-container")
 
 let pets = []
 let playerAttack
 let enemyAttack
+let petsOption
+let inputAxolotl 
+let inputEagle 
+let inputJaguar 
 let playerLives = 3
 let enemyLives = 3
 
@@ -40,11 +42,52 @@ let axolotl = new Pet ("Axolotl","/assets/Axolotl.png", 5)
 let eagle = new Pet ("Eagle","/assets/Eagle.png", 5)
 let jaguar = new Pet ("Jaguar","/assets/Jaguar.png", 5)
 
+axolotl.attacks.push (
+    {name:"💧", id:"button-water"},
+    {name:"💧", id:"button-water"},
+    {name:"💧", id:"button-water"},
+    {name:"🔥", id:"button-fire"},
+    {name:"🌱", id:"button-earth"}
+)
 
+eagle.attacks.push (
+    {name:"💧", id:"button-water"},
+    {name:"🔥", id:"button-fire"},
+    {name:"🔥", id:"button-fire"},
+    {name:"🔥", id:"button-fire"},
+    {name:"🌱", id:"button-earth"}
+)
+
+jaguar.attacks.push (
+    {name:"🌱", id:"button-earth"},
+    {name:"🌱", id:"button-earth"},
+    {name:"💧", id:"button-water"},
+    {name:"🔥", id:"button-fire"},
+    {name:"🌱", id:"button-earth"}
+)
+
+pets.push(axolotl,eagle,jaguar)
 
 
 function startGame(){
     sectionSelectAttack.style.display = 'none'
+
+    pets.forEach((Pet) => {
+        petsOption = 
+        `
+        <input type="radio" id=${Pet.name} name="pet"/>
+            <label class="pet-card" for=${Pet.name}">
+                <p>${Pet.name}</p>
+                <img src=${Pet.image} 
+                alt=${Pet.name} width="100" />
+            </label>
+        `
+        cardsContainer.innerHTML += petsOption
+    })
+
+    let inputAxolotl = document.getElementById("Axolotl")
+    let inputEagle = document.getElementById("Eagle")
+    let inputJaguar = document.getElementById("Jaguar")
 
     sectionRestart.style.display = 'none'
     
